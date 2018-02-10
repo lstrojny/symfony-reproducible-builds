@@ -3,10 +3,10 @@ set -e -x
 
 rm -rf var/cache/*
 
-SYMFONY__KERNEL__CONTAINER_BUILD_TIME=100 php bin/console cache:warmup
+SYMFONY__KERNEL__CONTAINER_BUILD_TIME=100 php bin/console --env=prod --no-debug cache:warmup
 
-mv var/cache/dev var/cache/dev-old
+mv var/cache/prod var/cache/prod-old
 
-SYMFONY__KERNEL__CONTAINER_BUILD_TIME=100 php bin/console cache:warmup
+SYMFONY__KERNEL__CONTAINER_BUILD_TIME=100 php bin/console --env=prod --no-debug cache:warmup
 
-diff -ru var/cache/dev-old var/cache/dev
+diff -ruN var/cache/prod-old var/cache/prod
