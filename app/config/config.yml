@@ -30,6 +30,8 @@ framework:
     assets: ~
     php_errors:
         log: true
+    cache:
+        version: %env(SYMFONY_CACHE_VERSION)%
 
 # Twig Configuration
 twig:
