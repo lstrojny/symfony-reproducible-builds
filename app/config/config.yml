@@ -31,7 +31,7 @@ framework:
     php_errors:
         log: true
     cache:
-        version: %env(SYMFONY_CACHE_VERSION)%
+        prefix_seed: %env(SYMFONY_CACHE_PREFIX_SEED)%
 
 # Twig Configuration
 twig:

@@ -7,7 +7,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 
 const PRS = [
-    'symfony/symfony' => [26127, 26128, 26131, 25978],
+    'symfony/symfony' => [26127, 26128, 25978],
     'symfony/monolog-bundle' => [248],
     'twig/twig' => [2621],
     'ocramius/proxy-manager' => [411],
@@ -31,7 +31,7 @@ foreach (array_keys(PRS) as $package) {
     (new Filesystem())->remove(__DIR__ . '/vendor/' . $package);
 }
 
-exec(sprintf('cd %s && composer install', escapeshellarg(__DIR__)), $output, $retVal);
+exec(sprintf('cd %s && composer install --prefer-source', escapeshellarg(__DIR__)), $output, $retVal);
 
 if ($retVal !== 0) {
     printf("Could not run composer install: %s\n", implode("\n", $output));
